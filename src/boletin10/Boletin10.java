@@ -5,6 +5,7 @@
  */
 package boletin10;
 
+import java.util.Random;
 import javax.swing.JOptionPane;
 
 /**
@@ -17,6 +18,9 @@ public class Boletin10 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        int selector=Integer.parseInt(JOptionPane.showInputDialog("Elije modo de juego\nPulsa 1 para modo 2 jugadores\nPulsa 2 para modo vs IA"));
+        switch(selector){
+            case 1:
         // condicion para salir del bucle
         int salir=0;
         //con este while hacemos que se vuelva a ejecutar el codigo una vez acertado el numero
@@ -59,7 +63,48 @@ public class Boletin10 {
         //else de despedida
         else JOptionPane.showMessageDialog(null,"Gracias por jugar");
         }
+            case 2:
+                Random rd1=new Random();
+                int salir2=0;
+                while (salir2!=1){
+                    int numeroIA=rd1.nextInt(49)+1;
+                    int numeroBuscar=Integer.parseInt(JOptionPane.showInputDialog(null, "Jugador 2: Adivina el numero entre 1 y 50\n Escribe 999 para salir"));
+                    if (numeroBuscar==999){
+                        salir2=1;
+                    }
+                    if(salir2!=1){
+                        do{
+//                            int diferencia=0;
+//                            if(numeroBuscar>numeroIA){
+//                               diferencia=numeroBuscar-numeroIA; 
+//                            }
+//                            else if (numeroBuscar<numeroIA){
+//                               diferencia=numeroIA-numeroBuscar; 
+//                            }
+                            //Uso math para hallar el valor absoluto y escribir menos codigo
+                            int diferencia=Math.abs(numeroIA-numeroBuscar);
+                            if (diferencia<=5){
+                                JOptionPane.showMessageDialog(null,"Muy cerca");
+                            }
+                            else if (diferencia>5&&diferencia<10){
+                                JOptionPane.showMessageDialog(null,"Cerca");
+                            }
+                            else if (diferencia>=10&&diferencia<=20){
+                                JOptionPane.showMessageDialog(null,"Lejos");
+                            }
+                            else if (diferencia>20){
+                                JOptionPane.showMessageDialog(null,"Muy lejos");
+                            }
+                            numeroBuscar=Integer.parseInt(JOptionPane.showInputDialog(null, "Jugador 2: elije otro numero"));
+                            
+                        }
+                        while (numeroIA!=numeroBuscar);
+                        JOptionPane.showMessageDialog(null,"Has Acertado! el numero era "+numeroBuscar);
+                    
+                    }
+                    else JOptionPane.showMessageDialog(null,"Gracias por jugar");
+                }
+        }
     
-
     }
 }
