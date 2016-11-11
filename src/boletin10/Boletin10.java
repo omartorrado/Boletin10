@@ -72,8 +72,12 @@ public class Boletin10 {
                     if (numeroBuscar==999){
                         salir2=1;
                     }
+                                        
                     if(salir2!=1){
                         do{
+                            while (numeroBuscar>50||numeroBuscar<1){
+                                numeroBuscar=Integer.parseInt(JOptionPane.showInputDialog(null, "Jugador 2: elije otro numero que esté entre 1 y 50"));
+                            }
 //                            int diferencia=0;
 //                            if(numeroBuscar>numeroIA){
 //                               diferencia=numeroBuscar-numeroIA; 
@@ -83,6 +87,7 @@ public class Boletin10 {
 //                            }
                             //Uso math para hallar el valor absoluto y escribir menos codigo
                             int diferencia=Math.abs(numeroIA-numeroBuscar);
+
                             if (diferencia<=5){
                                 JOptionPane.showMessageDialog(null,"Muy cerca");
                             }
@@ -104,6 +109,7 @@ public class Boletin10 {
                     }
                     else JOptionPane.showMessageDialog(null,"Gracias por jugar");
                 }
+            
         }
     
     }
