@@ -26,6 +26,8 @@ public class Boletin10 {
         //con este while hacemos que se vuelva a ejecutar el codigo una vez acertado el numero
         while (salir!=1){
         int numero=0;
+        //declaro contador de intentos
+        int intentos;
         //Aki pide el numero, comprueba que está entre 1 y 50, sino lo vuelve a pedir
         //a no ser k pongas 999 en cuyo caso sale del bucle
         do{
@@ -34,15 +36,24 @@ public class Boletin10 {
                 salir=1;
                 //cambio el numero a 1 cuando elejimos 999 para que salga del bucle do while
                 numero=1;
+                intentos=0;
             }
         
         }
-        while (numero<1||numero>50);
+        while ((numero<1||numero>50)&&salir!=1);
+
         //si la condicion de salir se cumple no ejecuta el juego y salta al else de despedida
         if (salir!=1){
+                    //una vez elegido el numero (estando dentro de los margenes 1-50) escoje el numero de intentos
+                intentos=Integer.parseInt(JOptionPane.showInputDialog("Cuantos intentos tiene el jugador 2 para acertar?"));
+            while (intentos<=2){
+                intentos=Integer.parseInt(JOptionPane.showInputDialog("Dale al menos tres intentos"));
+            }
         //pide al jugador 2 que intente adivinar el numero
             int numeroBuscar=Integer.parseInt(JOptionPane.showInputDialog(null, "Jugador 2: Adivina el numero entre 1 y 50"));
             do{
+                //Reducimos el contador de intentos
+                intentos--;
                 //si es menor que el numero elegido por el jugador lo indica con un mensaje
                 if (numeroBuscar>numero){
                     JOptionPane.showMessageDialog(null,"El numero que buscas es menor que "+numeroBuscar);
@@ -55,14 +66,21 @@ public class Boletin10 {
                 }
             }
             //sigue en este bucle hasta que el numero sea igual al elegido
-            while (numeroBuscar!=numero);
+            while (numeroBuscar!=numero&&intentos>1);
             //al acertar salta este mensaje (pq salimos del bucle anterior)
+            if(numeroBuscar==numero){
             JOptionPane.showMessageDialog(null,"Has Acertado! el numero era "+numeroBuscar);
+            }
+            else{
+                JOptionPane.showMessageDialog(null,"Te has quedado sin intentos, mejor suerte la proxima vez");
+            }
     
         }
         //else de despedida
         else JOptionPane.showMessageDialog(null,"Gracias por jugar");
+        
         }
+            break;
             case 2:
                 Random rd1=new Random();
                 int salir2=0;
@@ -108,8 +126,11 @@ public class Boletin10 {
                     
                     }
                     else JOptionPane.showMessageDialog(null,"Gracias por jugar");
+                   
                 }
-            
+            break;
+            default:
+                break;
         }
     
     }
