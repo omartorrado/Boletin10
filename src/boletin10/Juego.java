@@ -130,10 +130,10 @@ public class Juego {
                         }
                         while ((numeroIA!=numeroBuscar)&&intentos>0);
                         if (numeroBuscar==numeroIA){
-                        JOptionPane.showMessageDialog(null,"Has Acertado! el numero era "+numeroBuscar);
+                        JOptionPane.showMessageDialog(null,"Has Acertado! el numero era "+numeroIA);
                         }
-                        if(intentos==0){
-                           JOptionPane.showMessageDialog(null,"Te has quedado sin intentos, el numero era "+numeroBuscar); 
+                        else if(intentos==0){
+                           JOptionPane.showMessageDialog(null,"Te has quedado sin intentos, el numero era "+numeroIA); 
                         }
                     }
                     else {
