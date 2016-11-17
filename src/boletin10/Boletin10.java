@@ -23,10 +23,10 @@ public class Boletin10 {
         switch(selector){
             case 1:
                 j1.jugar2P();
-            break;
+            
             case 2:
                 j1.jugarIA();
-            break;
+            
             default:
                 break;
         }

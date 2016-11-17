@@ -73,7 +73,7 @@ public class Juego {
         }
         //else de despedida
         else JOptionPane.showMessageDialog(null,"Gracias por jugar");
-        
+        break;
         }
     }
         
@@ -83,8 +83,12 @@ public class Juego {
                 while (salir2!=1){
                     int numeroIA=rd1.nextInt(49)+1;
                     int intentos=Integer.parseInt(JOptionPane.showInputDialog("La maquina ha elegido un numero entre 1 y 50\n¿En cuantos intentos te crees capaz de adivinarlo?\n Escribe 999 para salir"));
+                    if (intentos==999){
+                        JOptionPane.showMessageDialog(null,"Gracias por jugar");
+                        break;
+                    }
                     int numeroBuscar=Integer.parseInt(JOptionPane.showInputDialog(null, "Jugador 2: Adivina el numero entre 1 y 50\n Escribe 999 para salir"));
-                    if (numeroBuscar==999||intentos==999){
+                    if (numeroBuscar==999){
                         salir2=1;
                         intentos=0;
                     }
@@ -116,9 +120,13 @@ public class Juego {
                             else if (diferencia>20){
                                 JOptionPane.showMessageDialog(null,"Muy lejos");
                             }
-                            numeroBuscar=Integer.parseInt(JOptionPane.showInputDialog(null, "Jugador 2: elije otro numero"));
                             intentos--;
-                            System.out.println("Te quedan "+intentos+" intentos");
+                            if(intentos>0){
+                                System.out.println("Te quedan "+intentos+" intentos");    
+                                numeroBuscar=Integer.parseInt(JOptionPane.showInputDialog(null, "Jugador 2: elije otro numero"));
+                            }
+                                    
+                            
                         }
                         while ((numeroIA!=numeroBuscar)&&intentos>0);
                         if (numeroBuscar==numeroIA){
@@ -128,8 +136,10 @@ public class Juego {
                            JOptionPane.showMessageDialog(null,"Te has quedado sin intentos"); 
                         }
                     }
-                    else JOptionPane.showMessageDialog(null,"Gracias por jugar");
-                   
+                    else {
+                        JOptionPane.showMessageDialog(null,"Gracias por jugar");
+                        break;
+                    }
                 }
         }
 }
