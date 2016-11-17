@@ -32,6 +32,7 @@ public class Juego {
                 //cambio el numero a 1 cuando elejimos 999 para que salga del bucle do while
                 numero=1;
                 intentos=0;
+                
             }
         
         }
@@ -79,8 +80,8 @@ public class Juego {
         
         public void jugarIA(){
             Random rd1=new Random();
-                int salir2=0;
-                while (salir2!=1){
+                salir=0;
+                while (salir!=1){
                     int numeroIA=rd1.nextInt(49)+1;
                     int intentos=Integer.parseInt(JOptionPane.showInputDialog("La maquina ha elegido un numero entre 1 y 50\n¿En cuantos intentos te crees capaz de adivinarlo?\n Escribe 999 para salir"));
                     if (intentos==999){
@@ -89,11 +90,11 @@ public class Juego {
                     }
                     int numeroBuscar=Integer.parseInt(JOptionPane.showInputDialog(null, "Jugador 2: Adivina el numero entre 1 y 50\n Escribe 999 para salir"));
                     if (numeroBuscar==999){
-                        salir2=1;
+                        salir=1;
                         intentos=0;
                     }
                                         
-                    if(salir2!=1){
+                    if(salir!=1){
                         do{
                             while (numeroBuscar>50||numeroBuscar<1){
                                 numeroBuscar=Integer.parseInt(JOptionPane.showInputDialog(null, "Jugador 2: elije otro numero que esté entre 1 y 50"));
