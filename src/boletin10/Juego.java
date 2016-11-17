@@ -64,10 +64,10 @@ public class Juego {
             while (numeroBuscar!=numero&&intentos>1);
             //al acertar salta este mensaje (pq salimos del bucle anterior)
             if(numeroBuscar==numero){
-            JOptionPane.showMessageDialog(null,"Has Acertado! el numero era "+numeroBuscar);
+            JOptionPane.showMessageDialog(null,"Has Acertado! el numero era "+numero);
             }
             else{
-                JOptionPane.showMessageDialog(null,"Te has quedado sin intentos, mejor suerte la proxima vez");
+                JOptionPane.showMessageDialog(null,"Te has quedado sin intentos, el numero era "+numero+" mejor suerte la proxima vez");
             }
     
         }
@@ -133,7 +133,7 @@ public class Juego {
                         JOptionPane.showMessageDialog(null,"Has Acertado! el numero era "+numeroBuscar);
                         }
                         if(intentos==0){
-                           JOptionPane.showMessageDialog(null,"Te has quedado sin intentos"); 
+                           JOptionPane.showMessageDialog(null,"Te has quedado sin intentos, el numero era "+numeroBuscar); 
                         }
                     }
                     else {
